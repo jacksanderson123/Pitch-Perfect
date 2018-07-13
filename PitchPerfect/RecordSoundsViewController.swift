@@ -67,15 +67,11 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     func configUi(recording: Bool){
-        if(recording){
-            recordingLabel.text = "Recording In Progress"
-            stopRecordingButton.isEnabled = recording
-            startRecordingButton.isEnabled = !recording
-        }else{
-            stopRecordingButton.isEnabled = recording
-            startRecordingButton.isEnabled = !recording
-            recordingLabel.text = "Tap to record"
-        }
+        
+        recordingLabel.text = recording ? "Recording In Progress" : "Tap to record"
+        stopRecordingButton.isEnabled = recording
+        startRecordingButton.isEnabled = !recording
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier  == "stopRecording" {
